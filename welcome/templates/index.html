@@ -1,0 +1,66 @@
+{% load static %}
+<html>
+
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <div class="white">
+
+        <h1 style="color: black; text-align:center;"> 
+        </h1>
+   </div>
+
+
+   <div class="black">
+    <h1 style="color:white; text-align: left">
+        {% for a in data %}
+     temperature :{{a.app_temp}} <br>
+        {{a.city_name}}
+        {% endfor %}
+   </h1>
+
+   </div>
+        
+   <div class="green" style="text-align: center;font-size: 50px;">
+    {% for a in data %}
+    {{a.ob_time}}
+    <h1></h1>
+    {% endfor %}
+   
+   </div> 
+    <div class="text">
+        <form action="" method="post">
+            {% csrf_token %}
+        <input type="text" style="height: 30px;width: 200px;" name="city">
+        <button type="submit" style="width:100px; background-color: rgb(11, 146, 146);height: 30px; margin-right: 110px;">Search</button >
+        </form>
+   </div>
+
+<div class="Blue" style="font-size: 15px;">
+    <h1>
+    {% for a in data %}
+     {{a.snow}}
+     {% endfor %}
+     snow
+    </h1>
+</div>
+
+
+<div class="Red" style="font-size: 15px;"> 
+    <h1>
+    {% for a in data %}
+    {{a.sunset}}
+    {% endfor %}
+    sunset
+    </h1>
+
+</div>
+
+<div class="Orange" style="font-size: 14px;">
+    <h1>
+        {% for a in data%}
+        {{a.sunrise}}
+        {% endfor %}
+        sunrise
+    </h1>
+
+</div>
+</html>
